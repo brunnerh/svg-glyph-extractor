@@ -2,7 +2,11 @@
 	"name": "svg-glyph-extractor",
 	"description": "Extract glyphs in an SVG file into separate SVGs as paths.",
 	"authors": "brunnerh",
-	"version": "1.0.0",
+	"version": "1.1.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/brunnerh/svg-glyph-extractor"
+	},
 	"bin": "./src/main.js",
 	"dependencies": {
 		"puppeteer": "^10.1.0"
