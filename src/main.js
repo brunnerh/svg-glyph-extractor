@@ -53,13 +53,14 @@ function generateSvgs(text, prefix)
 
 	const glyphs = [...svgDocument.querySelectorAll('glyph')];
 
-	const svgs = glyphs.map(glyph =>
+	const svgs = glyphs.map((glyph, i) =>
 	{
 		const glyphName = glyph.getAttribute('glyph-name');
 		const unicode = glyph.getAttribute('unicode');
-		const code = unicode.codePointAt(0);
+		const code = unicode == null ? null :
+			`0x${unicode.codePointAt(0).toString(16)}`;
 
-		const name = glyphName ?? `0x${code.toString(16)}`;
+		const name = glyphName ?? code ?? `unknown-${i}`;
 		const data = glyph.getAttribute('d');
 
 		const glyphDocumentMarkup = makeSvg(data);
